@@ -6,35 +6,35 @@ import DinoFinder from './js/dino-finder.js';
 
 $(document).ready(function() {
   const dinoArray = [];
-  const outputArray = [];
+  let outputArray = [];
   $("#play-game").click(function() {
     $("#game").show();
     $("#play-game").hide();
     let promise = DinoFinder.getDino();
     promise.then(function(response) {
       const body = JSON.parse(response);
-      let dinoWord = (body[0][0]).split("");
+      let dinoWord = (body[0][0].toLowerCase()).split("");
       dinoWord.forEach(function(letter) {
+        outputArray.push('&nbsp;&nbsp; __  &nbsp;&nbsp;');
         dinoArray.push(letter);
-        $(".dinoResult").append(`__  &nbsp;&nbsp;&nbsp;&nbsp;`);
+        $(".dinoResult").append(`&nbsp;&nbsp; __  &nbsp;&nbsp;`);
       });
     }, function(error) {
       console.log(error);
     });
   });
   $("#submit").click(function() {
+    $(".dinoResult").html("");
     console.log(dinoArray);
-    
-    let inputLetter = $("#inputLetter").val();
-    let outputString = "";
-    dinoArray.forEach(function(letter) { 
-      if (letter === inputLetter) {
-        outputString += letter;
-      } else {
-        outputString += "__  &nbsp;&nbsp;&nbsp;&nbsp;"
+    let inputLetter = $("#inputLetter").val().toLowerCase();
+    dinoArray.forEach(function(letter, index) {
+      if (inputLetter === letter) {
+        outputArray[index] = `&nbsp;&nbsp; ${letter}  &nbsp;&nbsp;`;
       }
     });
-    $(".dinoResult").html(outputString);
-    console.log(outputString);
+        outputArray.forEach(function(space) {
+      $(".dinoResult").append(space);
+    });
+    //console.log(outputArray);
   });
 });
