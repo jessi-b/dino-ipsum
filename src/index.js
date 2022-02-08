@@ -43,12 +43,23 @@ $(document).ready(function() {
       let count = parseInt($(".hangman").html());
       count = count - 1;
       if (count === 0) {
-        $("#game-result").show(1000);
-        $("#main-game").hide(1000);
+        $("#game").hide(1000);
+        $(".hidden").show(1000);
+        $("#game-result").text("You Lose!");
+        $("#new-game").show();
       }
       $(".hangman").html(count);
     }
-    
+    if (!(outputArray.includes("&nbsp;&nbsp; __  &nbsp;&nbsp;"))) {
+      $("#game").hide(1000);
+      $(".hidden").show(1000);
+      $("#game-result").text("You Win!");
+      $("#new-game").show();
+    }
     $("#inputLetter").val("");
+  });
+
+  $("#new-game").click(function() {
+    location.reload(true);
   });
 });
