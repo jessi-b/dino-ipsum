@@ -22,19 +22,33 @@ $(document).ready(function() {
     }, function(error) {
       console.log(error);
     });
+    console.log(dinoArray);
   });
+  
   $("#submit").click(function() {
     $(".dinoResult").html("");
-    console.log(dinoArray);
+    let dinoString = "";
     let inputLetter = $("#inputLetter").val().toLowerCase();
     dinoArray.forEach(function(letter, index) {
+      dinoString += letter;
       if (inputLetter === letter) {
         outputArray[index] = `&nbsp;&nbsp; ${letter}  &nbsp;&nbsp;`;
       }
     });
-        outputArray.forEach(function(space) {
+    outputArray.forEach(function(space) {
       $(".dinoResult").append(space);
     });
-    //console.log(outputArray);
+    if (!(dinoString.includes(inputLetter))) { 
+      $(".wrongLetters").append(inputLetter);
+      let count = parseInt($(".hangman").html());
+      count = count - 1;
+      if (count === 0) {
+        $("#game-result").show(1000);
+        $("#main-game").hide(1000);
+      }
+      $(".hangman").html(count);
+    }
+    
+    $("#inputLetter").val("");
   });
 });

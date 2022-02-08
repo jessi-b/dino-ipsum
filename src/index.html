@@ -4,19 +4,50 @@
   <title>Dino Hangman</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="main-game">
     <div class="row">
-      <button class="btn btn-dark" id="play-game">Play Game</button>
+      <button class="btn btn-dark" id="play-game">Play Dino Hangman</button>
     </div>
     <div id="game">
       <div class="row">
-        <div class="dinoResult"></div>
+        <div class="col-7">
+          <div class="dinoResult"></div>
+        </div>
+        <div class="col-5">
+          <p>Turns left: <span class="hangman">6</span></p>
+        </div>
       </div>
       <div class="row">
-        <input id="inputLetter" type="text">
-        <button class="btn btn-dark" id="submit">Submit</button>
+        <div class="col-7">
+          <label for="inputLetter">Guess a letter: </label>
+          <input id="inputLetter" type="text">
+          <button class="btn btn-dark" id="submit">Submit</button>
+        </div>
+        <div class="col-5">
+          <p>Wrong Guesses: <span class="wrongLetters"><!--letter bank output here--></span></p>
+        </div>
       </div>
     </div>
   </div>
+  <div class="container hidden" id="game-result">
+    You lose!
+  </div>
 </body>
 </html>
+
+
+
+<!-- |
+O
+
+|
+|
+
+/|
+|
+
+|\
+|
+
+/
+ \ -->

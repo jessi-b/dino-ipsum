@@ -2,6 +2,10 @@
   margin-top: 15px;
 }
 
-/* #game {
+#game {
   display: none;
-} */
+}
+
+.hidden {
+  display:none;
+}
