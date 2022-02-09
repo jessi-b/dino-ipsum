@@ -41,10 +41,11 @@ $(document).ready(function() {
     if (!(dinoString.includes(inputLetter))) { 
       $(".wrongLetters").append(inputLetter);
       let count = parseInt($(".hangman").html());
+      $(`#hangman-${count}`).show();
       count = count - 1;
       if (count === 0) {
-        $("#game").hide(1000);
-        $(".hidden").show(1000);
+        $("#game").hide(5000);
+        $(".hidden").show(6000);
         $("#game-result").text("You Lose!");
         $("#new-game").show();
       }

@@ -5,16 +5,25 @@
 </head>
 <body>
   <div class="container" id="main-game">
-    <div class="row">
+    <div class="top-row">
       <button class="btn btn-dark" id="play-game">Play Dino Hangman</button>
     </div>
     <div id="game">
       <div class="row">
         <div class="col-7">
+          <br><br><br><br>
           <div class="dinoResult"></div>
+          <br><br><br>
         </div>
+
         <div class="col-5">
           <p>Turns left: <span class="hangman">6</span></p>
+          <div class="hidden the-man" id="hangman-6">|</div>
+          <div class="hidden the-man" id="hangman-5">☹</div>
+          <div class="hidden the-man" id="hangman-4">/|\</div>
+          <div class="hidden the-man" id="hangman-3">^ | ^</div>
+          <div class="hidden the-man" id="hangman-2">/ \</div>
+          <div class="hidden the-man" id="hangman-1">_| |_</div>
         </div>
       </div>
       <div class="row">
@@ -35,3 +44,10 @@
   </div>
 </body>
 </html>
+<!-- 
+  |
+ ( )
+ /|\
+^ | ^
+ / \
+_| |_ -->
